@@ -21,8 +21,8 @@ System.register(["angular2/core"], function(exports_1) {
                 }
                 Tile = __decorate([
                     core_1.Component({
-                        selector: "qcTile",
-                        templateUrl: "tile.html"
+                        selector: "QC-Tile",
+                        templateUrl: "/scripts/tile/tile.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Tile);

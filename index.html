@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Qumu Cloud Integration App</title>
+	<!-- Bootstrap & Jquery -->
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- Angular2 -->
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+	<script src="node_modules/rxjs/bundles/rx.js"></script>
+	<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+	<script src="node_modules/angular2/bundles/router.dev.js"></script>
+	<script src="node_modules/angular2/bundles/http.dev.js"></script>
+
+	<script type="text/javascript">
+		System.config({
+			packages:{
+				"scripts":{
+					format: "register",
+					defaultExtension: "js"
+					}
+			}
+		});
+		System.import("scripts/boot/boot");
+	</script>
+
+
+</head>
+
+<body class="container">
+	<QC-App></QC-App>
+</body>
+
+</html>

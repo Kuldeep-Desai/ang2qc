@@ -15,19 +15,26 @@
 	<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 	<script src="node_modules/angular2/bundles/router.dev.js"></script>
 	<script src="node_modules/angular2/bundles/http.dev.js"></script>
-
+	<script src="node_modules/bootbox/bootbox.js"></script>
+	
+	
 	<script type="text/javascript">
 		System.config({
 			packages:{
 				"scripts":{
 					format: "register",
 					defaultExtension: "js"
-					}
+					},
+					"../node_modules/rxjs":{defaultExtension: "js"}
+			},
+			paths:{
+				"rxjs/operator/*":"node_modules/rxjs/add/operator/*.js",
+				"rxjs/*":"node_modules/rxjs/*.js"
 			}
 		});
 		System.import("scripts/boot/boot");
 	</script>
-
+<link href="style/bootstrap.min.css" rel="stylesheet"/>
 
 </head>
 

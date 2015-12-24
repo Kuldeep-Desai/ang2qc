@@ -21,6 +21,7 @@ System.register(["angular2/core", "../tile/tile"], function(exports_1) {
         execute: function() {
             Jukebox = (function () {
                 function Jukebox() {
+                    console.log("Jukebox Activated");
                 }
                 Jukebox = __decorate([
                     core_1.Component({

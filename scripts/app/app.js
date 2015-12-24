@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "../Login/Login", "../Jukebox/Jukebox"], function(exports_1) {
+System.register(["angular2/core", "angular2/router", "../Login/Login", "../Jukebox/Jukebox", "../qcConsts/constants"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/router", "../Login/Login", "../Jukeb
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Login_1, Jukebox_1;
+    var core_1, router_1, Login_1, Jukebox_1, constants_1;
     var App;
     return {
         setters:[
@@ -23,12 +23,18 @@ System.register(["angular2/core", "angular2/router", "../Login/Login", "../Jukeb
             },
             function (Jukebox_1_1) {
                 Jukebox_1 = Jukebox_1_1;
+            },
+            function (constants_1_1) {
+                constants_1 = constants_1_1;
             }],
         execute: function() {
             App = (function () {
                 function App(router) {
                     this.router = router;
-                    router.go("/jukebox");
+                    if (constants_1.QCConstants.token === "")
+                        router.navigate(["/Login"]);
+                    else
+                        router.navigate(["/Jukebox"]);
                 }
                 App = __decorate([
                     core_1.Component({
@@ -40,7 +46,7 @@ System.register(["angular2/core", "angular2/router", "../Login/Login", "../Jukeb
                         { name: "Login", component: Login_1.Login, path: "/login" },
                         { name: "Jukebox", component: Jukebox_1.Jukebox, path: "/jukebox" }
                     ]), 
-                    __metadata('design:paramtypes', [router_1.Location])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], App);
                 return App;
             })();

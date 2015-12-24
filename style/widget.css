@@ -1,0 +1,910 @@
+/*
+ * Reset/Base
+ * ----------
+ *
+ * Probably best not to override these!
+ */
+
+.kv-widget,
+.kv-widget *,
+.kv-overlay,
+.kv-overlay *,
+.kv-animation-panel,
+.kv-animation-panel * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.kv-widget img,
+.kv-overlay img,
+.kv-animation-panel img {
+  border: none;
+  padding: 0;
+}
+
+.kv-clear {
+  clear: both;
+}
+
+.kv-hidden {
+  position: absolute;
+  left: -1000000px;
+  /* height must be greater than 0 for view stats to be sent in IE. */
+}
+
+.kv-loading {
+  display: block;
+  position: relative;
+  padding: 20px;
+  text-align: left;
+  /* Fix an issue where text-align would move the loading indicator in IE */
+}
+
+.kv-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+* html .kv-overlay {
+  background: url(../images/spacer.gif);
+}
+
+.kv-overlay .kv-back {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.kv-overlay .kv-smoke {
+  position: fixed;
+}
+
+.kv-auto-scroll {
+  overflow: auto;
+}
+
+.kv-widget {
+  position: relative;
+}
+
+.kv-player {
+  position: relative;
+}
+
+.kv-player:focus {
+  outline: none;
+}
+
+#kv-player-title {
+  display: none;
+}
+
+.kv-viewer {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+ /* Work around bug in iOS 7 where video shows larger than it should */
+}
+
+.kv-overlay .kv-close-button {
+  display: block;
+  z-index: 1;
+  position: absolute;
+  cursor: pointer;
+}
+
+.kv-video {
+  display: block;
+}
+
+/* Hide focus indicator so it doesn't disturb mouse users */
+.kv-video,
+.kv-video:focus {
+  outline: 0;
+}
+
+.kv-video img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.kv-info-panel {
+  width: 100%;
+}
+
+.kv-packshot-holder .kv-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.kv-packshot-holder .kv-info-inner {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+* html .kv-packshot-holder .kv-info-inner {
+  width: 100%;
+}
+
+.kv-player .kv-panel {
+  display: none;
+}
+
+.kv-embed-code {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.kv-grid-widget {
+  overflow-x: hidden;
+}
+
+.kv-grid-widget .kv-kulu-container {
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kv-grid-widget .kv-kulu-container .kv-divider {
+  width: 100%;
+  float: left;
+}
+
+.kv-carousel-widget {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.kv-carousel-body {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+.kv-carousel-container {
+    position: relative;
+}
+
+.kv-carousel-widget .kv-kulu {
+    float: left;
+}
+
+.kv-carousel-widget .kv-packshot-holder {
+    margin: 0 auto;
+}
+
+.kv-packshot-holder {
+  position: relative;
+  overflow: hidden;
+}
+
+.kv-packshot {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+}
+
+.kv-play-icon {
+    position: absolute;
+}
+
+.kv-kulu {
+  overflow: hidden;
+  position: relative;
+  zoom: 1; /* Fix an IE6 float bug */
+}
+
+.kv-first-slide {
+  border: none;
+  position: absolute;
+}
+
+.kv-animation-panel {
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.kv-thumbnail-holder {
+  background: black;
+}
+
+.kv-thumbnail-holder .kv-thumbnail {
+  position: absolute;
+  max-width: none;
+}
+
+
+.kv-featured-widget .kv-kulu {
+    position: absolute;
+}
+
+.kv-featured-widget .kv-packshot-holder {
+    overflow: visible;
+}
+
+.kv-focus-holder {
+  position: absolute;
+  left: -1000px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Overridable below this line
+ *
+ * --------------------------------
+ */
+
+
+
+/*
+ * Basics
+ */
+
+.kv-widget,
+.kv-overlay,
+.kv-animation-panel {
+  /* We use the default font family on the page */
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+}
+
+
+
+/*
+ * Overlay
+ */
+
+.kv-overlay .kv-smoke {
+  background-color: #fff;
+  opacity: 0.7;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+
+.kv-overlay .kv-player {
+  margin-top: -10px;
+  margin-left: -10px;
+  padding: 10px;
+  background: #fff !important;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.kv-overlay .kv-shadow {
+  -webkit-box-shadow: 0 0 20px #aaa;
+  -moz-box-shadow: 0 0 20px #aaa;
+  box-shadow: 0 0 20px #aaa;
+  border: 1px solid #ccc;
+  margin-top: -11px;
+  margin-left: -11px;
+}
+
+.kv-overlay .kv-close-button {
+  height: 48px;
+  width: 48px;
+  background: url(../images/close.png);
+}
+
+* html .kv-overlay .kv-close-button {
+  /* IE6 only - transparency with proper handling of relative URLs */
+  _behavior: expression(
+    this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1],
+    this.style.background = "none",
+    this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ")"
+  );
+}
+
+
+
+/*
+ * Player
+ */
+
+.kv-player {
+  background: #000;
+}
+
+.kv-video {
+  background: #000;
+}
+
+.kv-overlay .kv-video {
+  /* Why is this? */
+  background: #fff;
+}
+
+/*The class name when using the Qumu player */
+.kv-kv-player {
+    background: #fff;
+}
+
+.kv-restricted-message {
+  background: #000;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #888;
+  font-weight: bold;
+}
+
+.kv-restricted-message td {
+  padding: 20px;
+}
+
+
+
+/*
+ * Info Panel
+ */
+
+.kv-info-panel {
+  color: #444;
+  background: #fff;
+  font-size: 12px;
+  text-align: left;
+  /*line-height: 1.4;*/
+}
+
+.kv-info-panel-inner {
+    padding: 10px;
+}
+
+.kv-info-panel-inner .kv-info-field-title {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Info over the thumbnail */
+.kv-packshot-holder .kv-info {
+  text-align: left;
+
+  /* Don't use ms opacity here as it causes the info to disappear with IE8.  */
+  opacity: 0.85;
+}
+
+.kv-packshot-holder .kv-info-inner {
+  color: #fff;
+  background: #222;
+  padding: 4px;
+}
+
+.kv-packshot-holder .kv-info-field-title {
+  font-weight: bold;
+}
+
+.kv-player .kv-info-details {
+  font-size: 12px;
+  text-align: left;
+}
+
+.kv-info-field-title {
+  font-weight: bold;
+}
+
+.kv-info-label {
+  font-weight: bold;
+}
+
+.kv-info-details {
+    margin-top: 1em;
+}
+
+
+
+/*
+ * Buttons
+ */
+
+.kv-button {
+  padding: 5px 10px;
+  cursor: pointer;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+  background-color: #ebebeb;
+  border: 1px solid #cccccc;
+  border-bottom-color: #999999;
+  color: #333;
+}
+
+a.kv-button,
+a.kv-button:link,
+a.kv-button:visited,
+a.kv-button:active {
+  color: #333;
+  text-decoration: none;
+}
+
+.kv-button-icon {
+    background: #eee url(../images/share/share-16x16.png) no-repeat 10px center;
+    padding-left: 30px;
+}
+
+.kv-button-email {
+    background-image: url(../images/share/email-16x16.png);
+}
+
+.kv-button-facebook {
+    background-image: url(../images/share/facebook-16x16.png);
+}
+
+.kv-button-twitter {
+    background-image: url(../images/share/twitter-16x16.png);
+}
+
+.kv-button-myspace {
+    background-image: url(../images/share/myspace-16x16.png);
+}
+
+.kv-button-digg {
+    background-image: url(../images/share/digg-16x16.png);
+}
+
+.kv-button-linkedin {
+    background-image: url(../images/share/linkedin-16x16.png);
+}
+
+.kv-button-share {
+    background-image: url(../images/share/share-16x16.png);
+}
+
+
+
+/*
+ * Overlay and Playback Panel
+ */
+
+.kv-player .kv-panel {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.kv-share-button,
+.kv-embed-button,
+.kv-download-button {
+  float: right;
+  margin-left: 10px;
+}
+
+.kv-spacer {
+    height: 1em;
+}
+
+
+
+/*
+ * Sharing
+ */
+
+.kv-share-input {
+  padding: 3px;
+  display: block;
+  width: 98%;
+}
+
+.kv-share-panel .kv-button {
+  float: left;
+  margin-right: 10px;
+}
+
+
+
+/*
+ * Embedding
+ */
+
+.kv-embed-code-container {
+  border: 1px solid #bbb;
+  margin-bottom: 10px;
+  height: 80px;
+}
+
+.kv-embed-code {
+  font-family: monospace;
+}
+
+.kv-embed-buttons {
+  text-align: center;
+  padding: 10px;
+}
+
+.kv-embed-size {
+  margin: 0 20px;
+
+  padding: 5px 10px;
+  cursor: pointer;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+  background-color: #ebebeb;
+  border: 1px solid #cccccc;
+  border-bottom-color: #999999;
+  color: #333;
+}
+
+a.kv-embed-size {
+  color: #333;
+}
+
+.kv-embed-size,
+.kv-embed-size:hover {
+  text-decoration: none;
+}
+
+.kv-selected {
+  background-color: #e2e2e2;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+
+
+
+/*
+ * Links
+ */
+
+.kv-links {
+    margin-top: 1em;
+}
+
+.kv-links ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 25px;
+    list-style-type:square
+}
+
+.kv-links-title {
+    color: #333;
+    font-size: 13px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.kv-links-with-icons ul {
+    padding: 0;
+    list-style: none;
+}
+
+.kv-links-with-icons  a {
+    padding: 3px;
+    padding-left: 22px;
+    background-position: middle left;
+    background-repeat: no-repeat;
+    line-height: 22px;
+    background-image: url(../images/link-icons/icon_world.gif);
+}
+
+.kv-links-with-icons .kv-icon-pdf a {
+    background-image: url(../images/link-icons/file_acrobat.gif);
+}
+
+.kv-links-with-icons .kv-icon-mp3 a {
+    background-image: url(../images/link-icons/page_sound.gif);
+}
+
+
+
+/*
+ * Vertical Widget
+ */
+
+.kv-vertical-widget .kv-kulu {
+  border-bottom: 1px solid #efefef;
+  padding: 10px;
+}
+
+.kv-vertical-widget .kv-kulu-last {
+  border-bottom: none;
+}
+
+
+
+/*
+ * Grid Widget
+ */
+
+.kv-grid-widget .kv-search {
+  padding-right: 10px;
+}
+
+.kv-grid-widget .kv-kulu {
+  padding: 10px;
+  float: left;
+}
+
+
+
+/*
+ * Carousel Widget
+ */
+
+.kv-carousel-button {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  cursor: pointer;
+  background: url('../images/carousel/left.png') no-repeat center center;
+}
+
+.kv-carousel-left {
+  top: 0;
+  left: 0;
+  background-image: url('../images/carousel/left.png');
+}
+
+* html .kv-carousel-left {
+  background-image: url('../images/carousel/left.gif');
+}
+
+.kv-carousel-right {
+  top: 0;
+  right: 0;
+  background-image: url('../images/carousel/right.png');
+}
+
+* html .kv-carousel-right {
+  background-image: url('../images/carousel/right.gif');
+}
+
+.kv-carousel-page-indicators {
+    width: 100%;
+    text-align: center;
+    font-family: Tahoma;
+}
+
+.kv-carousel-page-indicators {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.kv-carousel-page-indicators a {
+    height: 10px;
+    width: 10px;
+    line-height: 1;
+    font-size: 20px;
+    color: #ddd;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.kv-carousel-page-indicators .kv-carousel-selected {
+    color: #888;
+}
+
+.kv-carousel-widget .kv-kulu .kv-kulu-top {
+    padding-bottom: 0px;
+}
+
+.kv-carousel-widget .kv-kulu .kv-kulu-bottom {
+    padding-top: 0px;
+}
+
+.kv-carousel-widget .kv-kulu .kv-kulu-top .kv-info {
+    padding-bottom: 2px;
+}
+
+.kv-carousel-widget .kv-kulu .kv-kulu-bottom .kv-info {
+    padding-top: 2px;
+}
+
+
+.kv-carousel-widget .kv-kulu-top .kv-info,
+.kv-carousel-widget .kv-kulu-bottom .kv-info {
+
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+
+
+/*
+ * Empty Widget
+ */
+
+.kv-empty {
+  margin: 0 auto;
+  text-align: center;
+  height: 100%;
+  font-style: italic;
+  color: #888;
+  padding: 20px;
+}
+
+
+
+/*
+ * Presentation Items
+ */
+
+.kv-kulu .kv-kulu-top {
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+.kv-kulu .kv-kulu-bottom {
+  overflow: hidden;
+  padding-top: 10px;
+}
+.kv-kulu .kv-kulu-left {
+  overflow: hidden;
+  padding-right: 10px;
+}
+.kv-kulu .kv-kulu-right {
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+.kv-kulu.inactive {
+  cursor: default;
+}
+
+.kv-kulu.inactive img {
+  cursor: default;
+}
+
+.kv-kulu.inactive .kv-play-icon {
+  display: none;
+}
+
+
+
+/*
+ * Thumbnail images
+ */
+
+.kv-packshot-holder .kv-info {
+  cursor: pointer;
+}
+
+.kv-packshot {
+  cursor: pointer;
+  background: #000;
+}
+
+.kv-play-icon {
+  cursor: pointer;
+}
+
+.kv-packshot img {
+  border: none;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  vertical-align: baseline;
+}
+
+.kv-packshot,
+.kv-packshot:hover {
+  text-decoration: none !important;
+}
+
+.kv-thumbnail-holder {
+  background: black;
+}
+
+.kv-viewer .kv-thumbnail {
+  cursor: pointer;
+}
+
+
+
+/*
+ * Search
+ */
+
+.kv-search {
+  margin: 10px 18px 0 10px;
+  position: relative;
+}
+
+/* Hack for webkit browsers which won't add the extra padding to the input */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .kv-search {
+    margin-right: 10px;
+  }
+}
+
+.kv-search input {
+  margin: 0;
+  display: block;
+  width: 100%;
+  padding: 3px;
+  border: 1px solid #ccc;
+}
+
+.kv-search .kv-loader {
+  background: url(../images/loading_indicator_small.gif);
+  position: absolute;
+  top: 7px;
+  right: 26px;
+  height: 16px;
+  width: 16px;
+}
+
+/*
+Work around an IE 7 bug where the input will overflow it's container and
+cause scrollbars.
+*/
+*:first-child+html .kv-search input {
+  width: 97%;
+}
+
+
+
+/*
+ * Animation
+ */
+
+.kv-animation-background {
+  background: white;
+}
+
+.kv-animation-thumbnail {
+  background: black;
+}
+
+
+
+/*
+ * Placeholder
+ */
+
+.kv-widget .placeholder,
+.kv-overlay .placeholder {
+    color: #aaa;
+}

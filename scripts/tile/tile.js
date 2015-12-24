@@ -22,7 +22,8 @@ System.register(["angular2/core"], function(exports_1) {
                 Tile = __decorate([
                     core_1.Component({
                         selector: "QC-Tile",
-                        templateUrl: "/scripts/tile/tile.html"
+                        templateUrl: "/scripts/tile/tile.html",
+                        inputs: ['kulu']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Tile);

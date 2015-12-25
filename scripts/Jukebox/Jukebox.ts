@@ -49,9 +49,7 @@ export class Jukebox implements OnInit {
 				setTimeout(function(){
                 $('.owl-carousel').owlCarousel({
 					margin: 10,
-					nav:false,
-                    autoWidth:true,
-                    items:4
+                    autoWidth: true
 				});
                 },100);
 			});

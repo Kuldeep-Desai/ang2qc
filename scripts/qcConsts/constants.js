@@ -8,7 +8,7 @@ System.register([], function(exports_1) {
                 }
                 QCConstants.domain = "https://feature-morgan-stanley.kuluvalley.com";
                 QCConstants.oauthClient = "sharepoint";
-                QCConstants.token = "";
+                QCConstants.token = "b11e5012c69e0dcdbcac0ce249136c73";
                 QCConstants.restEndPoint = QCConstants.domain + "/api/2.1/rest";
                 return QCConstants;
             })();

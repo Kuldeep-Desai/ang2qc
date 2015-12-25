@@ -8,4 +8,9 @@ import {QC} from "../models/kulu";
 })
 export class Tile{
 	public kulu: QC.Kulu;
+    playVideo(event){
+        event.preventDefault();
+        alert(this.kulu.guid);
+        
+    }
 }

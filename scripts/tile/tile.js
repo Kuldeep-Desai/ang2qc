@@ -19,6 +19,10 @@ System.register(["angular2/core"], function(exports_1) {
             Tile = (function () {
                 function Tile() {
                 }
+                Tile.prototype.playVideo = function (event) {
+                    event.preventDefault();
+                    alert(this.kulu.guid);
+                };
                 Tile = __decorate([
                     core_1.Component({
                         selector: "QC-Tile",

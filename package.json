@@ -24,6 +24,7 @@
   "devDependencies": {
     "concurrently": "^1.0.0",
     "live-server": "^0.9.0",
+    "tslint": "^3.2.1",
     "typescript": "^1.7.5"
   }
 }

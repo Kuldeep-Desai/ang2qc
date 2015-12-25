@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component, OnInit} from "angular2/core";
 import {Tile} from "../tile/tile";
 import {Http, Headers} from "angular2/http";
 import {QCConstants} from "../qcConsts/constants";
@@ -9,13 +9,18 @@ import {QC} from "../models/kulu";
 				 <QC-Tile [kulu]="kulu"></QC-Tile>
 				 </li></ul>`,*/
 	template: `<div class="owl-carousel">
-				<QC-Tile *ngFor="#kulu of kulus" [kulu]="kulu"></QC-Tile>
+                <div class="item" *ngFor="#kulu of kulus">
+				<QC-Tile [kulu]="kulu"></QC-Tile>
+                </div>
 				</div>`,
 	directives: [Tile]
 })
-export class Jukebox {
+export class Jukebox implements OnInit {
 	public myHeaders = new Headers();
 	public kulus: Array<QC.Kulu>=null;
+    ngOnInit() {
+    console.log('onInit');
+  }
 	constructor(public http: Http) {
 		this.myHeaders.append("Authorization", "Bearer " + QCConstants.token);
 		this.http.get(QCConstants.restEndPoint + "/kulus", { headers: this.myHeaders })
@@ -41,12 +46,14 @@ export class Jukebox {
 			err=> console.log(err),
 			() => {
 				console.log("Kulus fetched");
-				$('.owl-carousel').owlCarousel({
+				setTimeout(function(){
+                $('.owl-carousel').owlCarousel({
 					margin: 10,
-					loop: true,
-					autoWidth: true,
-					items: 4
+					nav:false,
+                    autoWidth:true,
+                    items:4
 				});
+                },100);
 			});
 
 	}

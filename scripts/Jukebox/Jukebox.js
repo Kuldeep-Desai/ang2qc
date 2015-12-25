@@ -52,18 +52,23 @@ System.register(["angular2/core", "../tile/tile", "angular2/http", "../qcConsts/
                         console.log(res.total);
                     }, function (err) { return console.log(err); }, function () {
                         console.log("Kulus fetched");
-                        $('.owl-carousel').owlCarousel({
-                            margin: 10,
-                            loop: true,
-                            autoWidth: true,
-                            items: 4
-                        });
+                        setTimeout(function () {
+                            $('.owl-carousel').owlCarousel({
+                                margin: 10,
+                                nav: false,
+                                autoWidth: true,
+                                items: 4
+                            });
+                        }, 100);
                     });
                 }
+                Jukebox.prototype.ngOnInit = function () {
+                    console.log('onInit');
+                };
                 Jukebox = __decorate([
                     core_1.Component({
                         selector: "QC-Jukebox",
-                        template: "<div class=\"owl-carousel\">\n\t\t\t\t<QC-Tile *ngFor=\"#kulu of kulus\" [kulu]=\"kulu\"></QC-Tile>\n\t\t\t\t</div>",
+                        template: "<div class=\"owl-carousel\">\n                <div class=\"item\" *ngFor=\"#kulu of kulus\">\n\t\t\t\t<QC-Tile [kulu]=\"kulu\"></QC-Tile>\n                </div>\n\t\t\t\t</div>",
                         directives: [tile_1.Tile]
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])

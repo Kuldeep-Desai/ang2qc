@@ -2,7 +2,7 @@ import { Component, View } from "angular2/core";
 import {QC} from "../models/kulu";
 
 @Component({
-	selector: "QC-Tile",
+	selector: "qc-tile",
 	templateUrl: "/scripts/tile/tile.html",
 	inputs:['kulu']
 })

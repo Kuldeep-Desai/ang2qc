@@ -53,7 +53,7 @@ System.register(["angular2/core", "angular2/http", "../qcConsts/constants", "ang
                 ;
                 Login = __decorate([
                     core_1.Component({
-                        selector: "QCLogin"
+                        selector: "qc-login"
                     }),
                     core_1.View({
                         templateUrl: "/scripts/login/login.html"

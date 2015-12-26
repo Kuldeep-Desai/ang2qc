@@ -38,7 +38,7 @@ System.register(["angular2/core", "angular2/router", "../Login/Login", "../Jukeb
                 }
                 App = __decorate([
                     core_1.Component({
-                        selector: "QC-App",
+                        selector: "qc-app",
                         template: "<router-outlet></router-outlet>",
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }),

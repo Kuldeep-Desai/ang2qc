@@ -37,25 +37,31 @@ System.register(["angular2/core", "../tile/tile", "angular2/http", "../qcConsts/
                         .subscribe(function (data) {
                         console.log(data);
                         var res = data;
-                        var retkulus = res.kulus;
-                        retkulus.forEach(function (kulu) {
-                            if (kulu.thumbnail) { }
-                            else {
-                                kulu.thumbnail =
-                                    {
-                                        height: 0,
-                                        width: 0,
-                                        url: "https://feature-morgan-stanley.kuluvalley.com/01450116157767/client/graphics/default-thumbnail.png" };
-                            }
+                        _this.kulus = res.kulus.map(function (kulu) {
+                            if (!kulu.thumbnail)
+                                kulu.thumbnail = {
+                                    height: 0,
+                                    width: 0,
+                                    url: "https://feature-morgan-stanley.kuluvalley.com/01450116157767/client/graphics/default-thumbnail.png"
+                                };
+                            return kulu;
                         });
-                        _this.kulus = retkulus;
                         console.log(res.total);
                     }, function (err) { return console.log(err); }, function () {
                         console.log("Kulus fetched");
                         setTimeout(function () {
                             $('.owl-carousel').owlCarousel({
                                 margin: 10,
-                                autoWidth: true
+                                autoWidth: true,
+                                0: {
+                                    items: 1
+                                },
+                                600: {
+                                    items: 2
+                                },
+                                1000: {
+                                    items: 3
+                                }
                             });
                         }, 100);
                     });
@@ -65,8 +71,8 @@ System.register(["angular2/core", "../tile/tile", "angular2/http", "../qcConsts/
                 };
                 Jukebox = __decorate([
                     core_1.Component({
-                        selector: "QC-Jukebox",
-                        template: "<div class=\"owl-carousel\">\n                <div class=\"item\" *ngFor=\"#kulu of kulus\">\n\t\t\t\t<QC-Tile [kulu]=\"kulu\"></QC-Tile>\n                </div>\n\t\t\t\t</div>",
+                        selector: "qc-jukebox",
+                        template: "<div class=\"owl-carousel\">\n                <div class=\"item\" *ngFor=\"#kulu of kulus\">\n                <qc-tile [kulu]=\"kulu\"></qc-tile>\n                </div>\n                </div>",
                         directives: [tile_1.Tile]
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])

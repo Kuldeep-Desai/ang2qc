@@ -5,7 +5,7 @@ import {QCConstants} from "../qcConsts/constants";
 import { Router, RouteConfig, ROUTER_DIRECTIVES, Location } from "angular2/router";
 import "rxjs/operator/map";
 @Component({
-	selector: "QCLogin"
+	selector: "qc-login"
 })
 @View({
 	templateUrl:"/scripts/login/login.html"

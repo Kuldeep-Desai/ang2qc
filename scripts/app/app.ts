@@ -5,7 +5,7 @@ import {Jukebox} from "../Jukebox/Jukebox";
 import {QCConstants} from "../qcConsts/constants";
 
 @Component({
-	selector: "QC-App",
+	selector: "qc-app",
 	template: "<router-outlet></router-outlet>",
 	directives: [ROUTER_DIRECTIVES]
 })

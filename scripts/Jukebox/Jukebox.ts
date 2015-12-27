@@ -58,6 +58,7 @@ export class Jukebox implements OnInit {
                     $('.owl-carousel').owlCarousel({
                         margin: 10,
                         autoWidth: true,
+                        responsiveBaseElement:".myCustomWrapper",
                         0: {
                             items: 1
                         },
